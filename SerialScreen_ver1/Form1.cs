@@ -45,7 +45,23 @@ namespace SerialScreen_ver1
         //stopwatch
         Stopwatch sw = new System.Diagnostics.Stopwatch();
         TimeSpan span = new TimeSpan(0,0,0);
-        
+
+        //Voltage Controller関連
+
+        public string Code_F4_spi = "H"; //stm32f4　-> stm32lにspi通信するときに、先頭につけるコード
+        public bool Amp_flag = false;
+            //stm32l062のコード　stm32f4からspi通信でstm32l062に送信する。
+            public string Code_SWOn = "G";
+            public string Code_SWoff = "H";
+            public string Code_Dac_1byte = "N";
+            public string Code_LEDOn = "D";
+            public string Code_LEDOff = "E";
+
+        public int zero_Vcon = (int)(255 * (1.6 / 3.3));
+
+        public long slope = 500;
+        public long intercept = -400;
+
 
         //
         // ADC Charts variables
@@ -901,124 +917,262 @@ namespace SerialScreen_ver1
             label_TotalCountingTime.Text = span.ToString(@"hh\:mm\:ss");
             
         }
+
+        private void button_VoltageON_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == false)
+            {
+                MessageBox.Show("stm32を接続してください。");
+                return;
+            }
+
+            try
+            {
+                if (int.Parse(textBox_VoltageOut.Text) > 2000) { };
+            }
+            catch
+            {
+                MessageBox.Show("値が不正です。");
+                return;
+            }
+
+
+            if (int.Parse(textBox_VoltageOut.Text) > 2000)
+            {
+                //メッセージボックスを表示する
+                DialogResult result = MessageBox.Show("印可電圧が2000Vを超えます。続行しますか？",
+                    "確認",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button2);
+
+                //何が選択されたか調べる
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    //Console.WriteLine("「はい」が選択されました");
+                }
+                else if (result == DialogResult.No)
+                {
+                    //「いいえ」が選択された時
+                    //Console.WriteLine("「いいえ」が選択されました");
+                    return;
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    //「キャンセル」が選択された時
+                    //Console.WriteLine("「キャンセル」が選択されました");
+                    return;
+                }
+            }
+
+           
+            if (Amp_flag == false)
+            {
+                float Vcon = 0;
+
+                try
+                {
+                    Vcon = (float.Parse(textBox_VoltageOut.Text) - 400) / (500);
+                }
+                catch
+                {
+                    MessageBox.Show("値が不正です。");
+                    return;
+                }
+
+                //出力が0VになるVconを先に出しておく。
+                serialPort1.Write(Code_F4_spi + Code_Dac_1byte + (char)zero_Vcon);
+                System.Threading.Thread.Sleep(100);
+
+                //stm32f4がstm32l0にspi通信してる期間の待ち
+                System.Threading.Thread.Sleep(100);
+
+                //アンプをオンにする。
+                serialPort1.Write(Code_F4_spi + Code_SWOn);
+
+                //stm32f4がstm32l0にspi通信してる期間の待ち
+                System.Threading.Thread.Sleep(100);
+
+                //出力したいVconを出力する。
+                int Vcon_255bit = (int)(255 * (Vcon / (float)3.3));
+                //byte列に直す（int型変換の場合、4byteに変換するので、通信には0番目だけ使う）
+                byte[] Vcon_Bin = BitConverter.GetBytes(Vcon_255bit);
+
+                //string Code_DAC = Code_Dac_1byte + (char)Vcon_255bit;
+                //0x48: stm32F4 spiコマンド
+                //0x4e: stm32l0　dac出力指定コマンド 
+                //Vcon_Bin[0]: stm32l0 dac出力値
+                byte[] Code_DAC = {0x48, 0x4e, Vcon_Bin[0] };
+
+                //第一引数のバイト列からオフセット０で２バイト送信する。
+                serialPort1.Write(Code_DAC, 0, 3);
+
+                //stm32f4がstm32l0にspi通信してる期間の待ち
+                System.Threading.Thread.Sleep(100);
+
+                Amp_flag = true;
+                System.Threading.Thread.Sleep(100);
+
+
+
+            }
+            else
+            {
+                float Vcon = 0;
+
+                try
+                {
+                    Vcon = (float.Parse(textBox_VoltageOut.Text) - 400) / (500);
+                }
+                catch
+                {
+                    MessageBox.Show("値が不正です。");
+                    return;
+                }
+
+                //出力したいVconを出力する。
+                int Vcon_255bit = (int)(255 * (Vcon / (float)3.3));
+                //byte列に直す（int型変換の場合、4byteに変換するので、通信には0番目だけ使う）
+                byte[] Vcon_Bin = BitConverter.GetBytes(Vcon_255bit);
+
+                //string Code_DAC = Code_Dac_1byte + (char)Vcon_255bit;
+                byte[] Code_DAC = { 0x48, 0x4e, Vcon_Bin[0] };
+                //第一引数のバイト列からオフセット０で２バイト送信する。
+                serialPort1.Write(Code_DAC, 0, 3);
+
+            }
+
+            textBox_voltageDisaplay.Text = textBox_VoltageOut.Text + "V";
+        }
+
+        private void button_voltageOFF_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == false)
+            {
+                MessageBox.Show("stm32L06seriesを接続してください。");
+                return;
+            }
+
+            if (Amp_flag == true)
+            {
+                serialPort1.Write(Code_F4_spi + Code_SWoff);
+                textBox_voltageDisaplay.Text = "0V";
+                Amp_flag = false;
+            }
+        }
+
+        private void button_100up_Click(object sender, EventArgs e)
+        {
+            int current_voltage = 0;
+            try
+            {
+                current_voltage = int.Parse(textBox_VoltageOut.Text);
+            }
+            catch
+            {
+                MessageBox.Show("値が不正です。");
+                return;
+            }
+
+            current_voltage += 100;
+            if (current_voltage > 2000)
+            {
+                //メッセージボックスを表示する
+                DialogResult result = MessageBox.Show("印可電圧が2000Vを超えます。続行しますか？",
+                    "確認",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button2);
+
+                //何が選択されたか調べる
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    // Console.WriteLine("「はい」が選択されました");
+                }
+                else if (result == DialogResult.No)
+                {
+                    //「いいえ」が選択された時
+                    //Console.WriteLine("「いいえ」が選択されました");
+                    return;
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    //「キャンセル」が選択された時
+                    //Console.WriteLine("「キャンセル」が選択されました");
+                    return;
+                }
+            }
+
+            textBox_VoltageOut.Text = current_voltage.ToString();
+        }
+
+        private void button_100down_Click(object sender, EventArgs e)
+        {
+            int current_voltage = 0;
+            try
+            {
+                current_voltage = int.Parse(textBox_VoltageOut.Text);
+            }
+            catch
+            {
+                MessageBox.Show("値が不正です。");
+                return;
+            }
+
+            current_voltage -= 100;
+
+            if (current_voltage < 0)
+            {
+                return;
+            }
+            textBox_VoltageOut.Text = current_voltage.ToString();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Amp_flag)
+            {
+                //メッセージボックスを表示する
+                DialogResult result = MessageBox.Show("電圧が印可しています。このままソフトを閉じますか？",
+                    "確認",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button2);
+
+                //何が選択されたか調べる
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    // Console.WriteLine("「はい」が選択されました");
+                }
+                else if (result == DialogResult.No)
+                {
+                    //「いいえ」が選択された時
+                    //Console.WriteLine("「いいえ」が選択されました");
+                    e.Cancel = true;
+                    return;
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    //「キャンセル」が選択された時
+                    //Console.WriteLine("「キャンセル」が選択されました");
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            else
+            {
+                //dac出力を0にして終了する。
+                if (serialPort1.IsOpen)
+                {
+                    serialPort1.Write(Code_F4_spi + Code_SWoff);
+                    serialPort1.Close();
+                }
+
+            }
+        }
+    }
     }
 
-    ////////////////////////////
-    //////////////////////////////
-    ////////いらないコードたち
-    ///
-
-
-
-    //private void button_open_Click(object sender, EventArgs e)
-    //{
-
-    //    b_rate = comboBox_baudrate.SelectedIndex;
-    //    switch (b_rate)
-    //    {
-    //        case (0): b_rate = 115200; break;
-    //        case (1): b_rate = 9600; break;
-    //    }
-
-    //    rx_setting = comboBox_rxsetting.SelectedIndex;
-    //    switch (rx_setting)
-    //    {
-    //        case (0): rx_setting = 0; break;
-    //        case (1): rx_setting = 1; break;
-    //        case (2): rx_setting = 2; break;
-
-    //    }
-
-    //    buf_thresh_setting = comboBox_BufThresh.SelectedIndex;
-    //    switch(buf_thresh_setting)
-    //    {
-    //        case (0):buf_thresh_setting = 1;break;
-    //        case (1): buf_thresh_setting = 200; break;
-    //        case (2): buf_thresh_setting = 500; break;
-    //        case (3): buf_thresh_setting = 1000; break;
-    //        case (4): buf_thresh_setting = 2000;break;
-    //        case (5):buf_thresh_setting = 10000;break;
-    //    }
-
-    //    buf_etc_setting(buf_thresh_setting);
-
-
-    //    serialPort1.BaudRate = b_rate;
-    //    serialPort1.Parity = Parity.None;
-    //    serialPort1.DataBits = 8;
-    //    serialPort1.StopBits = StopBits.One;
-    //    serialPort1.Handshake = Handshake.None;
-    //    serialPort1.PortName = "COM11";
-    //    serialPort1.ReceivedBytesThreshold = buf_thresh_setting;
-    //    serialPort1.Open();
-
-
-    //    //receive_buffer reset
-    //    serialPort1.DiscardInBuffer();
-
-    //    //disable btn or etc
-
-
-    //    btn_rx_buf_clear.Enabled = true;
-    //    btn_rx_buf_clear.Visible = true;
-
-    //    comboBox_baudrate.Enabled = false;
-    //    comboBox_BufThresh.Enabled = false;
-    //    comboBox_rxsetting.Enabled = false;
-
-
-    //}
-
-
-    //private void button3_Click(object sender, EventArgs e)
-    //{
-    //    //string a = comboBox_cmd.SelectedItem.ToString();
-    //    string send_code="B";
-    //    switch (a)
-    //    {
-    //        case "Hello":
-    //            send_code = "E";
-    //                break;
-    //        case "LED_TOGGLE":
-    //            send_code = "B";
-    //            break;
-    //        case "ADC_ON":
-    //            send_code = "C";
-    //            break;
-    //        case "ADC_OFF":
-    //            send_code = "D";
-    //            break;
-    //        case "SINGLE_ADC":
-    //            send_code = "F";
-    //            break;
-    //        case "setting":
-    //            send_code = "G";
-    //            break;
-
-
-
-    //    }
-
-    //    if (serialPort1.IsOpen)
-    //    {
-    //        serialPort1.Write(send_code);
-    //    }
-    //}
-
-    //public void buf_etc_setting(int buf_size)
-    //{
-    //    data_num = buf_size;
-    //    receive_buf = new byte[buf_size];
-    //    if (buf_size % 2 == 0)
-    //    {
-    //        short_buf = new short[buf_size / 2];
-    //    }
-    //}
-
-    //public void mca_result_init(int mca_data_num )
-    //{
-    //    mca_result0 = new int[mca_data_num];
-    //    mca_result1 = new int[mca_data_num];
-    //    mca_result2 = new int[mca_data_num];
-    //}
-}
