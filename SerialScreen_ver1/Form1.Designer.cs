@@ -78,6 +78,7 @@ namespace SerialScreen_ver1
             this.button_100up = new System.Windows.Forms.Button();
             this.button_voltageOFF = new System.Windows.Forms.Button();
             this.button_VoltageON = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).BeginInit();
             this.panel3.SuspendLayout();
@@ -93,7 +94,7 @@ namespace SerialScreen_ver1
             // button_close
             // 
             this.button_close.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_close.Location = new System.Drawing.Point(411, 596);
+            this.button_close.Location = new System.Drawing.Point(21, 588);
             this.button_close.Name = "button_close";
             this.button_close.Size = new System.Drawing.Size(144, 42);
             this.button_close.TabIndex = 2;
@@ -153,7 +154,7 @@ namespace SerialScreen_ver1
             // 
             this.button_MCA_ON.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_MCA_ON.ForeColor = System.Drawing.Color.Red;
-            this.button_MCA_ON.Location = new System.Drawing.Point(710, 550);
+            this.button_MCA_ON.Location = new System.Drawing.Point(687, 541);
             this.button_MCA_ON.Name = "button_MCA_ON";
             this.button_MCA_ON.Size = new System.Drawing.Size(111, 41);
             this.button_MCA_ON.TabIndex = 29;
@@ -165,7 +166,7 @@ namespace SerialScreen_ver1
             // 
             this.button_MCA_OFF.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_MCA_OFF.ForeColor = System.Drawing.Color.Blue;
-            this.button_MCA_OFF.Location = new System.Drawing.Point(710, 597);
+            this.button_MCA_OFF.Location = new System.Drawing.Point(687, 588);
             this.button_MCA_OFF.Name = "button_MCA_OFF";
             this.button_MCA_OFF.Size = new System.Drawing.Size(111, 42);
             this.button_MCA_OFF.TabIndex = 30;
@@ -186,7 +187,7 @@ namespace SerialScreen_ver1
             // btn_rx_buf_clear
             // 
             this.btn_rx_buf_clear.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btn_rx_buf_clear.Location = new System.Drawing.Point(450, 645);
+            this.btn_rx_buf_clear.Location = new System.Drawing.Point(577, 635);
             this.btn_rx_buf_clear.Name = "btn_rx_buf_clear";
             this.btn_rx_buf_clear.Size = new System.Drawing.Size(104, 34);
             this.btn_rx_buf_clear.TabIndex = 32;
@@ -198,7 +199,7 @@ namespace SerialScreen_ver1
             // 
             this.button_csv_out.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_csv_out.ForeColor = System.Drawing.Color.Purple;
-            this.button_csv_out.Location = new System.Drawing.Point(710, 645);
+            this.button_csv_out.Location = new System.Drawing.Point(687, 636);
             this.button_csv_out.Name = "button_csv_out";
             this.button_csv_out.Size = new System.Drawing.Size(111, 34);
             this.button_csv_out.TabIndex = 35;
@@ -282,7 +283,7 @@ namespace SerialScreen_ver1
             // button_autoopen
             // 
             this.button_autoopen.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_autoopen.Location = new System.Drawing.Point(410, 547);
+            this.button_autoopen.Location = new System.Drawing.Point(21, 539);
             this.button_autoopen.Name = "button_autoopen";
             this.button_autoopen.Size = new System.Drawing.Size(144, 43);
             this.button_autoopen.TabIndex = 41;
@@ -294,7 +295,7 @@ namespace SerialScreen_ver1
             // 
             this.button_adcStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button_adcStart.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_adcStart.Location = new System.Drawing.Point(560, 548);
+            this.button_adcStart.Location = new System.Drawing.Point(537, 539);
             this.button_adcStart.Name = "button_adcStart";
             this.button_adcStart.Size = new System.Drawing.Size(144, 42);
             this.button_adcStart.TabIndex = 42;
@@ -306,7 +307,7 @@ namespace SerialScreen_ver1
             // 
             this.button_adcStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button_adcStop.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_adcStop.Location = new System.Drawing.Point(560, 596);
+            this.button_adcStop.Location = new System.Drawing.Point(537, 587);
             this.button_adcStop.Name = "button_adcStop";
             this.button_adcStop.Size = new System.Drawing.Size(144, 42);
             this.button_adcStop.TabIndex = 43;
@@ -421,7 +422,7 @@ namespace SerialScreen_ver1
             // textBox_VoltageOut
             // 
             this.textBox_VoltageOut.Font = new System.Drawing.Font("MS UI Gothic", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox_VoltageOut.Location = new System.Drawing.Point(22, 539);
+            this.textBox_VoltageOut.Location = new System.Drawing.Point(205, 539);
             this.textBox_VoltageOut.Name = "textBox_VoltageOut";
             this.textBox_VoltageOut.Size = new System.Drawing.Size(185, 61);
             this.textBox_VoltageOut.TabIndex = 52;
@@ -432,7 +433,7 @@ namespace SerialScreen_ver1
             this.textBox_voltageDisaplay.BackColor = System.Drawing.Color.Black;
             this.textBox_voltageDisaplay.Font = new System.Drawing.Font("MS UI Gothic", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBox_voltageDisaplay.ForeColor = System.Drawing.Color.Chartreuse;
-            this.textBox_voltageDisaplay.Location = new System.Drawing.Point(21, 656);
+            this.textBox_voltageDisaplay.Location = new System.Drawing.Point(204, 656);
             this.textBox_voltageDisaplay.Name = "textBox_voltageDisaplay";
             this.textBox_voltageDisaplay.Size = new System.Drawing.Size(185, 61);
             this.textBox_voltageDisaplay.TabIndex = 55;
@@ -442,7 +443,7 @@ namespace SerialScreen_ver1
             // 
             this.button_100down.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_100down.ForeColor = System.Drawing.Color.Blue;
-            this.button_100down.Location = new System.Drawing.Point(118, 609);
+            this.button_100down.Location = new System.Drawing.Point(301, 609);
             this.button_100down.Name = "button_100down";
             this.button_100down.Size = new System.Drawing.Size(88, 41);
             this.button_100down.TabIndex = 54;
@@ -454,7 +455,7 @@ namespace SerialScreen_ver1
             // 
             this.button_100up.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_100up.ForeColor = System.Drawing.Color.Red;
-            this.button_100up.Location = new System.Drawing.Point(21, 609);
+            this.button_100up.Location = new System.Drawing.Point(204, 609);
             this.button_100up.Name = "button_100up";
             this.button_100up.Size = new System.Drawing.Size(88, 41);
             this.button_100up.TabIndex = 53;
@@ -465,7 +466,7 @@ namespace SerialScreen_ver1
             // button_voltageOFF
             // 
             this.button_voltageOFF.Font = new System.Drawing.Font("MS UI Gothic", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_voltageOFF.Location = new System.Drawing.Point(212, 618);
+            this.button_voltageOFF.Location = new System.Drawing.Point(395, 609);
             this.button_voltageOFF.Name = "button_voltageOFF";
             this.button_voltageOFF.Size = new System.Drawing.Size(92, 61);
             this.button_voltageOFF.TabIndex = 57;
@@ -476,7 +477,7 @@ namespace SerialScreen_ver1
             // button_VoltageON
             // 
             this.button_VoltageON.Font = new System.Drawing.Font("MS UI Gothic", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_VoltageON.Location = new System.Drawing.Point(212, 551);
+            this.button_VoltageON.Location = new System.Drawing.Point(395, 539);
             this.button_VoltageON.Name = "button_VoltageON";
             this.button_VoltageON.Size = new System.Drawing.Size(92, 61);
             this.button_VoltageON.TabIndex = 56;
@@ -484,12 +485,20 @@ namespace SerialScreen_ver1
             this.button_VoltageON.UseVisualStyleBackColor = true;
             this.button_VoltageON.Click += new System.EventHandler(this.button_VoltageON_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(190, 529);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(320, 199);
+            this.panel1.TabIndex = 58;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1425, 721);
+            this.ClientSize = new System.Drawing.Size(1425, 734);
             this.Controls.Add(this.button_voltageOFF);
             this.Controls.Add(this.button_VoltageON);
             this.Controls.Add(this.textBox_voltageDisaplay);
@@ -514,6 +523,7 @@ namespace SerialScreen_ver1
             this.Controls.Add(this.button_close);
             this.Controls.Add(this.chart_MCA);
             this.Controls.Add(this.chart1);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.ShowInTaskbar = false;
@@ -574,6 +584,7 @@ namespace SerialScreen_ver1
         private System.Windows.Forms.Button button_100up;
         private System.Windows.Forms.Button button_voltageOFF;
         private System.Windows.Forms.Button button_VoltageON;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
