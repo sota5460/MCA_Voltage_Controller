@@ -79,6 +79,7 @@ namespace SerialScreen_ver1
             this.button_voltageOFF = new System.Windows.Forms.Button();
             this.button_VoltageON = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).BeginInit();
             this.panel3.SuspendLayout();
@@ -493,12 +494,23 @@ namespace SerialScreen_ver1
             this.panel1.Size = new System.Drawing.Size(320, 199);
             this.panel1.TabIndex = 58;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(44, 656);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 59;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1425, 734);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_voltageOFF);
             this.Controls.Add(this.button_VoltageON);
             this.Controls.Add(this.textBox_voltageDisaplay);
@@ -529,7 +541,6 @@ namespace SerialScreen_ver1
             this.ShowInTaskbar = false;
             this.Text = "STM32F4series MCAアプリケーション";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -539,12 +550,7 @@ namespace SerialScreen_ver1
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
 
-
-        }
 
         #endregion
         private System.IO.Ports.SerialPort serialPort1;
@@ -585,6 +591,7 @@ namespace SerialScreen_ver1
         private System.Windows.Forms.Button button_voltageOFF;
         private System.Windows.Forms.Button button_VoltageON;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

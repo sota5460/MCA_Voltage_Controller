@@ -1173,6 +1173,27 @@ namespace SerialScreen_ver1
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == false)
+            {
+                MessageBox.Show("stm32を接続してください。");
+                return;
+            }
+
+            try
+            {
+                if (int.Parse(textBox_VoltageOut.Text) > 2000) { };
+            }
+            catch
+            {
+                MessageBox.Show("値が不正です。");
+                return;
+            }
+
+            serialPort1.Write(Code_F4_spi + "B");
+        }
     }
     }
 
