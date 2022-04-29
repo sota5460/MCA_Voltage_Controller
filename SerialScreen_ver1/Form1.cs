@@ -190,7 +190,7 @@ namespace SerialScreen_ver1
             textBox_threshold.Text = STM32_ADC_Threshold.ToString();
 
             
-            //mca横ラベルの初期化　
+            //mca_infoの初期化　
             label_TotalCountingTime.Text = span.ToString(@"hh\:mm\:ss");
             label_total_count_mca.Text = 0.ToString();
             label_peak_mca.Text = "" +0.ToString() + "\n(Count:" + 0.ToString()+")";
@@ -326,12 +326,16 @@ namespace SerialScreen_ver1
 
             chart1.ChartAreas.Add(multi_adc_chartarea);
 
+            multi_adc_chartarea.AxisX.Title = "Time  [1/adc_freq]";
+            multi_adc_chartarea.AxisY.Title = "ADC Value  [1/4096]";
+
             //initialize series property 
             // property for series that you need to determine -> charttype, points
             // series -> each graph 
             // 1. make new series 2.add property 3. add series to chart  
             adc1.ChartType = SeriesChartType.Line;
             adc1.Color = Color.FromArgb(211,96,21) ;
+            adc1.LegendText = "ADC data"; //凡例テキスト
 
             for (int i = 0; i < data_num/2; i++)
             {
@@ -453,6 +457,10 @@ namespace SerialScreen_ver1
             chart_MCA.Series.Clear();
             chart_MCA.ChartAreas.Add(mca_chart_area);
 
+            //軸の設定はデータ群ではなくチャートエリアで設定
+            mca_chart_area.AxisX.Title = "ADC level [a.u.]";
+            mca_chart_area.AxisY.Title = "Count [cnt]";
+
 
             //initialize series property 
             // property for series that you need to determine -> charttype, points
@@ -463,6 +471,9 @@ namespace SerialScreen_ver1
             mca_chart.ChartType = SeriesChartType.Line;
             //setting color
             mca_chart.Color = Color.FromArgb(78, 115, 166);
+
+           mca_chart.LegendText = "MCA result";
+            
 
             //mcaの結果格納用配列に０を入れる。
             mca_hist_zero(mca_total_buf);
