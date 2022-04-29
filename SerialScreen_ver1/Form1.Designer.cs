@@ -70,6 +70,7 @@ namespace SerialScreen_ver1
             this.button_VoltageON = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox_pulse_num = new System.Windows.Forms.TextBox();
             this.label_adc_sample_num = new System.Windows.Forms.Label();
@@ -83,13 +84,18 @@ namespace SerialScreen_ver1
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel_com = new System.Windows.Forms.ToolStripLabel();
+            this.timer_connection_check = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -416,6 +422,16 @@ namespace SerialScreen_ver1
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PMT電源";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.Location = new System.Drawing.Point(154, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 30);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "V";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button_autoopen);
@@ -577,22 +593,50 @@ namespace SerialScreen_ver1
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "ゲイン調整";
             // 
-            // label4
+            // toolStrip1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(154, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 30);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "V";
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.toolStripLabel_com});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 732);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1425, 25);
+            this.toolStrip1.TabIndex = 65;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(55, 22);
+            this.toolStripLabel1.Text = "接続状態";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel_com
+            // 
+            this.toolStripLabel_com.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.toolStripLabel_com.Name = "toolStripLabel_com";
+            this.toolStripLabel_com.Size = new System.Drawing.Size(43, 22);
+            this.toolStripLabel_com.Text = "未接続";
+            // 
+            // timer_connection_check
+            // 
+            this.timer_connection_check.Enabled = true;
+            this.timer_connection_check.Interval = 5000;
+            this.timer_connection_check.Tick += new System.EventHandler(this.timer_connection_check_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1425, 734);
+            this.ClientSize = new System.Drawing.Size(1425, 757);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -614,7 +658,10 @@ namespace SerialScreen_ver1
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -664,6 +711,11 @@ namespace SerialScreen_ver1
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel_com;
+        private System.Windows.Forms.Timer timer_connection_check;
     }
 }
 

@@ -789,7 +789,17 @@ namespace SerialScreen_ver1
 
         private void Send_ADCSettingCodetoSTM32()
         {
-            int threshold_send_value = Convert.ToInt32(textBox_threshold.Text);
+            int threshold_send_value;
+            try
+            {
+                threshold_send_value = Convert.ToInt32(textBox_threshold.Text);
+            }
+            catch
+            {
+                MessageBox.Show("閾値が正しくありません。");
+                return;
+            }
+            
             if (threshold_send_value > 4095 || threshold_send_value == 0)
             {
                 MessageBox.Show("閾値が正しくありません。");
@@ -833,6 +843,12 @@ namespace SerialScreen_ver1
 
             button_autoopen.Enabled = false;
 
+
+            toolStripLabel_com.Text = serialPort1.PortName + "  接続中";
+            toolStripLabel_com.ForeColor = Color.DarkRed;
+
+
+
         }
 
         private void button_close_Click(object sender, EventArgs e)
@@ -850,6 +866,10 @@ namespace SerialScreen_ver1
             button_MCA_OFF.Enabled = false;
 
             button_autoopen.Enabled = true;
+
+            toolStripLabel_com.Text = "未接続";
+            toolStripLabel_com.ForeColor = Color.Gray;
+
         }
 
         private void button_adcStart_Click(object sender, EventArgs e)
@@ -1219,8 +1239,26 @@ namespace SerialScreen_ver1
             }
 
             serialPort1.Write(Code_F4_spi + "B");
+            
         }
 
+        private void timer_connection_check_Tick(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == true)
+            {
+                toolStripLabel_com.Text = serialPort1.PortName+　"  接続中";
+                toolStripLabel_com.ForeColor = Color.DarkRed;
+                return;
+            }
+            else
+            {
+                toolStripLabel_com.Text = "未接続";
+                toolStripLabel_com.ForeColor = Color.Gray;
+            }
+                    
+
+           
+        }
     }
     }
 
