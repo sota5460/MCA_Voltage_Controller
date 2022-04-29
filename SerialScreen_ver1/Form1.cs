@@ -1247,7 +1247,7 @@ namespace SerialScreen_ver1
             if (serialPort1.IsOpen == true)
             {
                 toolStripLabel_com.Text = serialPort1.PortName+　"  接続中";
-                toolStripLabel_com.ForeColor = Color.DarkRed;　//
+                toolStripLabel_com.ForeColor = Color.DarkRed;　
                 return;
             }
             else
