@@ -303,6 +303,8 @@ namespace SerialScreen_ver1
                 }
 
                 serialPort1.DiscardInBuffer();
+
+                serialPort1.Write(adc_start_code);
             }
 
         }
@@ -664,6 +666,7 @@ namespace SerialScreen_ver1
 
             mca_chart_update(mca_total_buf);
             sw.Reset();
+            //label_TotalCountingTime.Text = sw.ToString(@"hh\:mm\:ss");
 
         }
 
@@ -985,14 +988,14 @@ namespace SerialScreen_ver1
                 serialPort1.Write(Code_F4_spi + Code_Dac_1byte + (char)zero_Vcon);
                 System.Threading.Thread.Sleep(100);
 
-                //stm32f4がstm32l0にspi通信してる期間の待ち
-                System.Threading.Thread.Sleep(100);
+                //stm32f4がstm32l0にspi通信してる期間の待ち spiが送信⇒受信で二回イベントがあるので少し長め（クロックもそんなに早くない）
+                System.Threading.Thread.Sleep(1000);
 
                 //アンプをオンにする。
                 serialPort1.Write(Code_F4_spi + Code_SWOn);
 
-                //stm32f4がstm32l0にspi通信してる期間の待ち
-                System.Threading.Thread.Sleep(100);
+                //stm32f4がstm32l0にspi通信してる期間の待ち　spiが送信⇒受信で二回イベントがあるので少し長め（クロックもそんなに早くない）
+                System.Threading.Thread.Sleep(1000);
 
                 //出力したいVconを出力する。
                 int Vcon_255bit = (int)(255 * (Vcon / (float)3.3));
@@ -1009,7 +1012,7 @@ namespace SerialScreen_ver1
                 serialPort1.Write(Code_DAC, 0, 3);
 
                 //stm32f4がstm32l0にspi通信してる期間の待ち
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(1000);
 
                 Amp_flag = true;
                 System.Threading.Thread.Sleep(100);
@@ -1041,6 +1044,10 @@ namespace SerialScreen_ver1
                 //第一引数のバイト列からオフセット０で２バイト送信する。
                 serialPort1.Write(Code_DAC, 0, 3);
 
+                //stm32f4がstm32l0にspi通信してる期間の待ち　spiが送信⇒受信で二回イベントがあるので少し長め（クロックもそんなに早くない）
+                System.Threading.Thread.Sleep(1000);
+
+
             }
 
             textBox_voltageDisaplay.Text = textBox_VoltageOut.Text + "V";
@@ -1057,6 +1064,9 @@ namespace SerialScreen_ver1
             if (Amp_flag == true)
             {
                 serialPort1.Write(Code_F4_spi + Code_SWoff);
+                //stm32f4がstm32l0にspi通信してる期間の待ち　spiが送信⇒受信で二回イベントがあるので少し長め（クロックもそんなに早くない）
+                System.Threading.Thread.Sleep(1000);
+
                 textBox_voltageDisaplay.Text = "0V";
                 Amp_flag = false;
             }
@@ -1168,6 +1178,11 @@ namespace SerialScreen_ver1
                 if (serialPort1.IsOpen)
                 {
                     serialPort1.Write(Code_F4_spi + Code_SWoff);
+
+                    //stm32f4がstm32l0にspi通信してる期間の待ち　spiが送信⇒受信で二回イベントがあるので少し長め（クロックもそんなに早くない）
+                    System.Threading.Thread.Sleep(1000);
+
+
                     serialPort1.Close();
                 }
 
