@@ -52,19 +52,9 @@ namespace SerialScreen_ver1
             this.button_mca_clear = new System.Windows.Forms.Button();
             this.btn_rx_buf_clear = new System.Windows.Forms.Button();
             this.button_csv_out = new System.Windows.Forms.Button();
-            this.clear_one_samplenum_btn = new System.Windows.Forms.Button();
-            this.clear_thresh_btn = new System.Windows.Forms.Button();
-            this.label_adc_threshold_dis = new System.Windows.Forms.Label();
-            this.textBox_pulse_num = new System.Windows.Forms.TextBox();
-            this.label_adc_sample_num = new System.Windows.Forms.Label();
-            this.label_adc_threshold = new System.Windows.Forms.Label();
-            this.textBox_threshold = new System.Windows.Forms.TextBox();
             this.button_autoopen = new System.Windows.Forms.Button();
             this.button_adcStart = new System.Windows.Forms.Button();
             this.button_adcStop = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button_adcsetting2 = new System.Windows.Forms.Button();
-            this.button_adcsetting1 = new System.Windows.Forms.Button();
             this.label_peak_mca = new System.Windows.Forms.Label();
             this.label_total_count_mca = new System.Windows.Forms.Label();
             this.label_TotalCountingTime = new System.Windows.Forms.Label();
@@ -78,11 +68,24 @@ namespace SerialScreen_ver1
             this.button_100up = new System.Windows.Forms.Button();
             this.button_voltageOFF = new System.Windows.Forms.Button();
             this.button_VoltageON = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox_pulse_num = new System.Windows.Forms.TextBox();
+            this.label_adc_sample_num = new System.Windows.Forms.Label();
+            this.textBox_threshold = new System.Windows.Forms.TextBox();
+            this.clear_thresh_btn = new System.Windows.Forms.Button();
+            this.label_adc_threshold = new System.Windows.Forms.Label();
+            this.clear_one_samplenum_btn = new System.Windows.Forms.Button();
+            this.label_adc_threshold_dis = new System.Windows.Forms.Label();
+            this.button_adcsetting1 = new System.Windows.Forms.Button();
+            this.button_adcsetting2 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -94,10 +97,10 @@ namespace SerialScreen_ver1
             // 
             // button_close
             // 
-            this.button_close.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_close.Location = new System.Drawing.Point(21, 588);
+            this.button_close.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_close.Location = new System.Drawing.Point(6, 69);
             this.button_close.Name = "button_close";
-            this.button_close.Size = new System.Drawing.Size(144, 42);
+            this.button_close.Size = new System.Drawing.Size(112, 32);
             this.button_close.TabIndex = 2;
             this.button_close.Text = "接続を解除";
             this.button_close.UseVisualStyleBackColor = true;
@@ -123,7 +126,7 @@ namespace SerialScreen_ver1
             series1.Points.Add(dataPoint2);
             series1.YValuesPerPoint = 4;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(743, 518);
+            this.chart1.Size = new System.Drawing.Size(670, 518);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             // 
@@ -141,23 +144,23 @@ namespace SerialScreen_ver1
             this.chart_MCA.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart_MCA.Legends.Add(legend2);
-            this.chart_MCA.Location = new System.Drawing.Point(770, 7);
+            this.chart_MCA.Location = new System.Drawing.Point(697, 7);
             this.chart_MCA.Name = "chart_MCA";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart_MCA.Series.Add(series2);
-            this.chart_MCA.Size = new System.Drawing.Size(643, 518);
+            this.chart_MCA.Size = new System.Drawing.Size(716, 518);
             this.chart_MCA.TabIndex = 26;
             this.chart_MCA.Text = "chart2";
             // 
             // button_MCA_ON
             // 
-            this.button_MCA_ON.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_MCA_ON.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_MCA_ON.ForeColor = System.Drawing.Color.Red;
-            this.button_MCA_ON.Location = new System.Drawing.Point(687, 541);
+            this.button_MCA_ON.Location = new System.Drawing.Point(126, 23);
             this.button_MCA_ON.Name = "button_MCA_ON";
-            this.button_MCA_ON.Size = new System.Drawing.Size(111, 41);
+            this.button_MCA_ON.Size = new System.Drawing.Size(111, 34);
             this.button_MCA_ON.TabIndex = 29;
             this.button_MCA_ON.Text = "MCA ON";
             this.button_MCA_ON.UseVisualStyleBackColor = true;
@@ -165,11 +168,11 @@ namespace SerialScreen_ver1
             // 
             // button_MCA_OFF
             // 
-            this.button_MCA_OFF.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_MCA_OFF.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_MCA_OFF.ForeColor = System.Drawing.Color.Blue;
-            this.button_MCA_OFF.Location = new System.Drawing.Point(687, 588);
+            this.button_MCA_OFF.Location = new System.Drawing.Point(126, 62);
             this.button_MCA_OFF.Name = "button_MCA_OFF";
-            this.button_MCA_OFF.Size = new System.Drawing.Size(111, 42);
+            this.button_MCA_OFF.Size = new System.Drawing.Size(111, 34);
             this.button_MCA_OFF.TabIndex = 30;
             this.button_MCA_OFF.Text = "MCA OFF";
             this.button_MCA_OFF.UseVisualStyleBackColor = true;
@@ -187,106 +190,34 @@ namespace SerialScreen_ver1
             // 
             // btn_rx_buf_clear
             // 
+            this.btn_rx_buf_clear.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btn_rx_buf_clear.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btn_rx_buf_clear.Location = new System.Drawing.Point(577, 635);
+            this.btn_rx_buf_clear.Location = new System.Drawing.Point(6, 110);
             this.btn_rx_buf_clear.Name = "btn_rx_buf_clear";
-            this.btn_rx_buf_clear.Size = new System.Drawing.Size(104, 34);
+            this.btn_rx_buf_clear.Size = new System.Drawing.Size(112, 34);
             this.btn_rx_buf_clear.TabIndex = 32;
-            this.btn_rx_buf_clear.Text = "受信バッファをクリア";
+            this.btn_rx_buf_clear.Text = "受信バッファ\r\nクリア";
             this.btn_rx_buf_clear.UseVisualStyleBackColor = true;
             this.btn_rx_buf_clear.Click += new System.EventHandler(this.btn_rx_buf_clear_Click);
             // 
             // button_csv_out
             // 
-            this.button_csv_out.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_csv_out.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_csv_out.ForeColor = System.Drawing.Color.Purple;
-            this.button_csv_out.Location = new System.Drawing.Point(687, 636);
+            this.button_csv_out.Location = new System.Drawing.Point(6, 151);
             this.button_csv_out.Name = "button_csv_out";
-            this.button_csv_out.Size = new System.Drawing.Size(111, 34);
+            this.button_csv_out.Size = new System.Drawing.Size(112, 34);
             this.button_csv_out.TabIndex = 35;
             this.button_csv_out.Text = "MCAをcsv出力";
             this.button_csv_out.UseVisualStyleBackColor = true;
             this.button_csv_out.Click += new System.EventHandler(this.button_csv_out_Click);
             // 
-            // clear_one_samplenum_btn
-            // 
-            this.clear_one_samplenum_btn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.clear_one_samplenum_btn.Location = new System.Drawing.Point(392, 46);
-            this.clear_one_samplenum_btn.Name = "clear_one_samplenum_btn";
-            this.clear_one_samplenum_btn.Size = new System.Drawing.Size(56, 23);
-            this.clear_one_samplenum_btn.TabIndex = 42;
-            this.clear_one_samplenum_btn.Text = "clear";
-            this.clear_one_samplenum_btn.UseVisualStyleBackColor = true;
-            this.clear_one_samplenum_btn.Click += new System.EventHandler(this.clear_one_samplenum_btn_Click);
-            // 
-            // clear_thresh_btn
-            // 
-            this.clear_thresh_btn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.clear_thresh_btn.Location = new System.Drawing.Point(111, 47);
-            this.clear_thresh_btn.Name = "clear_thresh_btn";
-            this.clear_thresh_btn.Size = new System.Drawing.Size(56, 23);
-            this.clear_thresh_btn.TabIndex = 41;
-            this.clear_thresh_btn.Text = "clear";
-            this.clear_thresh_btn.UseVisualStyleBackColor = true;
-            this.clear_thresh_btn.Click += new System.EventHandler(this.clear_thresh_btn_Click);
-            // 
-            // label_adc_threshold_dis
-            // 
-            this.label_adc_threshold_dis.AutoSize = true;
-            this.label_adc_threshold_dis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label_adc_threshold_dis.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_adc_threshold_dis.Location = new System.Drawing.Point(22, 73);
-            this.label_adc_threshold_dis.Name = "label_adc_threshold_dis";
-            this.label_adc_threshold_dis.Size = new System.Drawing.Size(109, 16);
-            this.label_adc_threshold_dis.TabIndex = 40;
-            this.label_adc_threshold_dis.Text = "0-4095を入力";
-            // 
-            // textBox_pulse_num
-            // 
-            this.textBox_pulse_num.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox_pulse_num.Location = new System.Drawing.Point(286, 46);
-            this.textBox_pulse_num.Name = "textBox_pulse_num";
-            this.textBox_pulse_num.Size = new System.Drawing.Size(100, 23);
-            this.textBox_pulse_num.TabIndex = 32;
-            this.textBox_pulse_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_pulse_num_KeyPress);
-            // 
-            // label_adc_sample_num
-            // 
-            this.label_adc_sample_num.AutoSize = true;
-            this.label_adc_sample_num.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_adc_sample_num.Location = new System.Drawing.Point(323, 24);
-            this.label_adc_sample_num.Name = "label_adc_sample_num";
-            this.label_adc_sample_num.Size = new System.Drawing.Size(160, 16);
-            this.label_adc_sample_num.TabIndex = 31;
-            this.label_adc_sample_num.Text = "トリガー後のサンプル数";
-            // 
-            // label_adc_threshold
-            // 
-            this.label_adc_threshold.AutoSize = true;
-            this.label_adc_threshold.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_adc_threshold.Location = new System.Drawing.Point(75, 24);
-            this.label_adc_threshold.Name = "label_adc_threshold";
-            this.label_adc_threshold.Size = new System.Drawing.Size(92, 16);
-            this.label_adc_threshold.TabIndex = 29;
-            this.label_adc_threshold.Text = "ADCトリガー";
-            // 
-            // textBox_threshold
-            // 
-            this.textBox_threshold.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox_threshold.Location = new System.Drawing.Point(6, 47);
-            this.textBox_threshold.Name = "textBox_threshold";
-            this.textBox_threshold.Size = new System.Drawing.Size(99, 23);
-            this.textBox_threshold.TabIndex = 30;
-            this.textBox_threshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_threshold_KeyPress);
-            this.textBox_threshold.MouseLeave += new System.EventHandler(this.textBox_threshold_MouseLeave);
-            this.textBox_threshold.MouseHover += new System.EventHandler(this.textBox_threshold_MouseHover);
-            // 
             // button_autoopen
             // 
-            this.button_autoopen.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_autoopen.Location = new System.Drawing.Point(21, 539);
+            this.button_autoopen.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_autoopen.Location = new System.Drawing.Point(6, 29);
             this.button_autoopen.Name = "button_autoopen";
-            this.button_autoopen.Size = new System.Drawing.Size(144, 43);
+            this.button_autoopen.Size = new System.Drawing.Size(112, 34);
             this.button_autoopen.TabIndex = 41;
             this.button_autoopen.Text = "STM32と接続";
             this.button_autoopen.UseVisualStyleBackColor = true;
@@ -295,10 +226,10 @@ namespace SerialScreen_ver1
             // button_adcStart
             // 
             this.button_adcStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button_adcStart.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_adcStart.Location = new System.Drawing.Point(537, 539);
+            this.button_adcStart.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_adcStart.Location = new System.Drawing.Point(6, 22);
             this.button_adcStart.Name = "button_adcStart";
-            this.button_adcStart.Size = new System.Drawing.Size(144, 42);
+            this.button_adcStart.Size = new System.Drawing.Size(114, 34);
             this.button_adcStart.TabIndex = 42;
             this.button_adcStart.Text = "ADCスタート";
             this.button_adcStart.UseVisualStyleBackColor = false;
@@ -307,53 +238,14 @@ namespace SerialScreen_ver1
             // button_adcStop
             // 
             this.button_adcStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button_adcStop.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_adcStop.Location = new System.Drawing.Point(537, 587);
+            this.button_adcStop.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_adcStop.Location = new System.Drawing.Point(6, 62);
             this.button_adcStop.Name = "button_adcStop";
-            this.button_adcStop.Size = new System.Drawing.Size(144, 42);
+            this.button_adcStop.Size = new System.Drawing.Size(114, 34);
             this.button_adcStop.TabIndex = 43;
             this.button_adcStop.Text = "ADCストップ";
             this.button_adcStop.UseVisualStyleBackColor = false;
             this.button_adcStop.Click += new System.EventHandler(this.button_adcStop_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.button_adcsetting2);
-            this.panel3.Controls.Add(this.button_adcsetting1);
-            this.panel3.Controls.Add(this.label_adc_threshold_dis);
-            this.panel3.Controls.Add(this.clear_one_samplenum_btn);
-            this.panel3.Controls.Add(this.label_adc_threshold);
-            this.panel3.Controls.Add(this.clear_thresh_btn);
-            this.panel3.Controls.Add(this.textBox_threshold);
-            this.panel3.Controls.Add(this.label_adc_sample_num);
-            this.panel3.Controls.Add(this.textBox_pulse_num);
-            this.panel3.Location = new System.Drawing.Point(827, 550);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(586, 129);
-            this.panel3.TabIndex = 45;
-            // 
-            // button_adcsetting2
-            // 
-            this.button_adcsetting2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_adcsetting2.Location = new System.Drawing.Point(454, 46);
-            this.button_adcsetting2.Name = "button_adcsetting2";
-            this.button_adcsetting2.Size = new System.Drawing.Size(56, 23);
-            this.button_adcsetting2.TabIndex = 44;
-            this.button_adcsetting2.Text = "決定";
-            this.button_adcsetting2.UseVisualStyleBackColor = true;
-            this.button_adcsetting2.Click += new System.EventHandler(this.button_adcsetting2_Click);
-            // 
-            // button_adcsetting1
-            // 
-            this.button_adcsetting1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_adcsetting1.Location = new System.Drawing.Point(173, 47);
-            this.button_adcsetting1.Name = "button_adcsetting1";
-            this.button_adcsetting1.Size = new System.Drawing.Size(56, 23);
-            this.button_adcsetting1.TabIndex = 43;
-            this.button_adcsetting1.Text = "決定";
-            this.button_adcsetting1.UseVisualStyleBackColor = true;
-            this.button_adcsetting1.Click += new System.EventHandler(this.button_adcsetting1_Click);
             // 
             // label_peak_mca
             // 
@@ -422,29 +314,29 @@ namespace SerialScreen_ver1
             // 
             // textBox_VoltageOut
             // 
-            this.textBox_VoltageOut.Font = new System.Drawing.Font("MS UI Gothic", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox_VoltageOut.Location = new System.Drawing.Point(205, 539);
+            this.textBox_VoltageOut.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox_VoltageOut.Location = new System.Drawing.Point(8, 85);
             this.textBox_VoltageOut.Name = "textBox_VoltageOut";
-            this.textBox_VoltageOut.Size = new System.Drawing.Size(185, 61);
+            this.textBox_VoltageOut.Size = new System.Drawing.Size(185, 50);
             this.textBox_VoltageOut.TabIndex = 52;
             this.textBox_VoltageOut.Text = "0";
             // 
             // textBox_voltageDisaplay
             // 
             this.textBox_voltageDisaplay.BackColor = System.Drawing.Color.Black;
-            this.textBox_voltageDisaplay.Font = new System.Drawing.Font("MS UI Gothic", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox_voltageDisaplay.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBox_voltageDisaplay.ForeColor = System.Drawing.Color.Chartreuse;
-            this.textBox_voltageDisaplay.Location = new System.Drawing.Point(204, 656);
+            this.textBox_voltageDisaplay.Location = new System.Drawing.Point(8, 29);
             this.textBox_voltageDisaplay.Name = "textBox_voltageDisaplay";
-            this.textBox_voltageDisaplay.Size = new System.Drawing.Size(185, 61);
+            this.textBox_voltageDisaplay.Size = new System.Drawing.Size(185, 50);
             this.textBox_voltageDisaplay.TabIndex = 55;
             this.textBox_voltageDisaplay.Text = "OFF";
             // 
             // button_100down
             // 
-            this.button_100down.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_100down.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_100down.ForeColor = System.Drawing.Color.Blue;
-            this.button_100down.Location = new System.Drawing.Point(301, 609);
+            this.button_100down.Location = new System.Drawing.Point(105, 141);
             this.button_100down.Name = "button_100down";
             this.button_100down.Size = new System.Drawing.Size(88, 41);
             this.button_100down.TabIndex = 54;
@@ -454,9 +346,9 @@ namespace SerialScreen_ver1
             // 
             // button_100up
             // 
-            this.button_100up.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_100up.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_100up.ForeColor = System.Drawing.Color.Red;
-            this.button_100up.Location = new System.Drawing.Point(204, 609);
+            this.button_100up.Location = new System.Drawing.Point(6, 141);
             this.button_100up.Name = "button_100up";
             this.button_100up.Size = new System.Drawing.Size(88, 41);
             this.button_100up.TabIndex = 53;
@@ -466,37 +358,33 @@ namespace SerialScreen_ver1
             // 
             // button_voltageOFF
             // 
-            this.button_voltageOFF.Font = new System.Drawing.Font("MS UI Gothic", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_voltageOFF.Location = new System.Drawing.Point(395, 609);
+            this.button_voltageOFF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button_voltageOFF.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_voltageOFF.Location = new System.Drawing.Point(196, 104);
             this.button_voltageOFF.Name = "button_voltageOFF";
-            this.button_voltageOFF.Size = new System.Drawing.Size(92, 61);
+            this.button_voltageOFF.Size = new System.Drawing.Size(70, 61);
             this.button_voltageOFF.TabIndex = 57;
             this.button_voltageOFF.Text = "OFF";
-            this.button_voltageOFF.UseVisualStyleBackColor = true;
+            this.button_voltageOFF.UseVisualStyleBackColor = false;
             this.button_voltageOFF.Click += new System.EventHandler(this.button_voltageOFF_Click);
             // 
             // button_VoltageON
             // 
-            this.button_VoltageON.Font = new System.Drawing.Font("MS UI Gothic", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button_VoltageON.Location = new System.Drawing.Point(395, 539);
+            this.button_VoltageON.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.button_VoltageON.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_VoltageON.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_VoltageON.ForeColor = System.Drawing.Color.Black;
+            this.button_VoltageON.Location = new System.Drawing.Point(196, 27);
             this.button_VoltageON.Name = "button_VoltageON";
-            this.button_VoltageON.Size = new System.Drawing.Size(92, 61);
+            this.button_VoltageON.Size = new System.Drawing.Size(70, 61);
             this.button_VoltageON.TabIndex = 56;
             this.button_VoltageON.Text = "ON";
-            this.button_VoltageON.UseVisualStyleBackColor = true;
+            this.button_VoltageON.UseVisualStyleBackColor = false;
             this.button_VoltageON.Click += new System.EventHandler(this.button_VoltageON_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(190, 529);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(320, 199);
-            this.panel1.TabIndex = 58;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(44, 656);
+            this.button1.Location = new System.Drawing.Point(1222, 616);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 59;
@@ -504,38 +392,173 @@ namespace SerialScreen_ver1
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox_voltageDisaplay);
+            this.groupBox1.Controls.Add(this.textBox_VoltageOut);
+            this.groupBox1.Controls.Add(this.button_voltageOFF);
+            this.groupBox1.Controls.Add(this.button_100down);
+            this.groupBox1.Controls.Add(this.button_VoltageON);
+            this.groupBox1.Controls.Add(this.button_100up);
+            this.groupBox1.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox1.Location = new System.Drawing.Point(148, 531);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(272, 191);
+            this.groupBox1.TabIndex = 60;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "PMT電源";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button_autoopen);
+            this.groupBox2.Controls.Add(this.button_close);
+            this.groupBox2.Controls.Add(this.btn_rx_buf_clear);
+            this.groupBox2.Controls.Add(this.button_csv_out);
+            this.groupBox2.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox2.Location = new System.Drawing.Point(10, 531);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(132, 191);
+            this.groupBox2.TabIndex = 61;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "接続";
+            // 
+            // textBox_pulse_num
+            // 
+            this.textBox_pulse_num.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox_pulse_num.Location = new System.Drawing.Point(1135, 560);
+            this.textBox_pulse_num.Name = "textBox_pulse_num";
+            this.textBox_pulse_num.Size = new System.Drawing.Size(100, 23);
+            this.textBox_pulse_num.TabIndex = 32;
+            this.textBox_pulse_num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_pulse_num_KeyPress);
+            // 
+            // label_adc_sample_num
+            // 
+            this.label_adc_sample_num.AutoSize = true;
+            this.label_adc_sample_num.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label_adc_sample_num.Location = new System.Drawing.Point(1174, 539);
+            this.label_adc_sample_num.Name = "label_adc_sample_num";
+            this.label_adc_sample_num.Size = new System.Drawing.Size(160, 16);
+            this.label_adc_sample_num.TabIndex = 31;
+            this.label_adc_sample_num.Text = "トリガー後のサンプル数";
+            // 
+            // textBox_threshold
+            // 
+            this.textBox_threshold.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox_threshold.Location = new System.Drawing.Point(893, 558);
+            this.textBox_threshold.Name = "textBox_threshold";
+            this.textBox_threshold.Size = new System.Drawing.Size(99, 23);
+            this.textBox_threshold.TabIndex = 30;
+            this.textBox_threshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_threshold_KeyPress);
+            this.textBox_threshold.MouseLeave += new System.EventHandler(this.textBox_threshold_MouseLeave);
+            this.textBox_threshold.MouseHover += new System.EventHandler(this.textBox_threshold_MouseHover);
+            // 
+            // clear_thresh_btn
+            // 
+            this.clear_thresh_btn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.clear_thresh_btn.Location = new System.Drawing.Point(998, 559);
+            this.clear_thresh_btn.Name = "clear_thresh_btn";
+            this.clear_thresh_btn.Size = new System.Drawing.Size(56, 23);
+            this.clear_thresh_btn.TabIndex = 41;
+            this.clear_thresh_btn.Text = "clear";
+            this.clear_thresh_btn.UseVisualStyleBackColor = true;
+            this.clear_thresh_btn.Click += new System.EventHandler(this.clear_thresh_btn_Click);
+            // 
+            // label_adc_threshold
+            // 
+            this.label_adc_threshold.AutoSize = true;
+            this.label_adc_threshold.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label_adc_threshold.Location = new System.Drawing.Point(795, 563);
+            this.label_adc_threshold.Name = "label_adc_threshold";
+            this.label_adc_threshold.Size = new System.Drawing.Size(92, 16);
+            this.label_adc_threshold.TabIndex = 29;
+            this.label_adc_threshold.Text = "ADCトリガー";
+            // 
+            // clear_one_samplenum_btn
+            // 
+            this.clear_one_samplenum_btn.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.clear_one_samplenum_btn.Location = new System.Drawing.Point(1241, 559);
+            this.clear_one_samplenum_btn.Name = "clear_one_samplenum_btn";
+            this.clear_one_samplenum_btn.Size = new System.Drawing.Size(56, 23);
+            this.clear_one_samplenum_btn.TabIndex = 42;
+            this.clear_one_samplenum_btn.Text = "clear";
+            this.clear_one_samplenum_btn.UseVisualStyleBackColor = true;
+            this.clear_one_samplenum_btn.Click += new System.EventHandler(this.clear_one_samplenum_btn_Click);
+            // 
+            // label_adc_threshold_dis
+            // 
+            this.label_adc_threshold_dis.AutoSize = true;
+            this.label_adc_threshold_dis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label_adc_threshold_dis.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label_adc_threshold_dis.Location = new System.Drawing.Point(899, 593);
+            this.label_adc_threshold_dis.Name = "label_adc_threshold_dis";
+            this.label_adc_threshold_dis.Size = new System.Drawing.Size(109, 16);
+            this.label_adc_threshold_dis.TabIndex = 40;
+            this.label_adc_threshold_dis.Text = "0-4095を入力";
+            // 
+            // button_adcsetting1
+            // 
+            this.button_adcsetting1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_adcsetting1.Location = new System.Drawing.Point(1060, 560);
+            this.button_adcsetting1.Name = "button_adcsetting1";
+            this.button_adcsetting1.Size = new System.Drawing.Size(56, 23);
+            this.button_adcsetting1.TabIndex = 43;
+            this.button_adcsetting1.Text = "決定";
+            this.button_adcsetting1.UseVisualStyleBackColor = true;
+            this.button_adcsetting1.Click += new System.EventHandler(this.button_adcsetting1_Click);
+            // 
+            // button_adcsetting2
+            // 
+            this.button_adcsetting2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_adcsetting2.Location = new System.Drawing.Point(1304, 564);
+            this.button_adcsetting2.Name = "button_adcsetting2";
+            this.button_adcsetting2.Size = new System.Drawing.Size(56, 23);
+            this.button_adcsetting2.TabIndex = 44;
+            this.button_adcsetting2.Text = "決定";
+            this.button_adcsetting2.UseVisualStyleBackColor = true;
+            this.button_adcsetting2.Click += new System.EventHandler(this.button_adcsetting2_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button_adcStart);
+            this.groupBox3.Controls.Add(this.button_adcStop);
+            this.groupBox3.Controls.Add(this.button_MCA_ON);
+            this.groupBox3.Controls.Add(this.button_MCA_OFF);
+            this.groupBox3.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox3.Location = new System.Drawing.Point(445, 531);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(321, 191);
+            this.groupBox3.TabIndex = 62;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "MCA用コマンド";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1425, 734);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.button_adcsetting2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button_voltageOFF);
-            this.Controls.Add(this.button_VoltageON);
-            this.Controls.Add(this.textBox_voltageDisaplay);
-            this.Controls.Add(this.button_100down);
-            this.Controls.Add(this.button_100up);
-            this.Controls.Add(this.textBox_VoltageOut);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label_adc_threshold);
+            this.Controls.Add(this.clear_one_samplenum_btn);
+            this.Controls.Add(this.textBox_threshold);
+            this.Controls.Add(this.label_adc_threshold_dis);
+            this.Controls.Add(this.clear_thresh_btn);
+            this.Controls.Add(this.textBox_pulse_num);
+            this.Controls.Add(this.label_adc_sample_num);
+            this.Controls.Add(this.button_adcsetting1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_TotalCountingTime);
             this.Controls.Add(this.label_total_count_mca);
             this.Controls.Add(this.label_peak_mca);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button_adcStop);
-            this.Controls.Add(this.button_adcStart);
-            this.Controls.Add(this.button_autoopen);
-            this.Controls.Add(this.button_csv_out);
             this.Controls.Add(this.button_mca_clear);
-            this.Controls.Add(this.btn_rx_buf_clear);
-            this.Controls.Add(this.button_MCA_OFF);
-            this.Controls.Add(this.button_MCA_ON);
-            this.Controls.Add(this.button_close);
             this.Controls.Add(this.chart_MCA);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.ShowInTaskbar = false;
@@ -543,8 +566,10 @@ namespace SerialScreen_ver1
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,22 +589,12 @@ namespace SerialScreen_ver1
         private System.Windows.Forms.Button button_mca_clear;
         private System.Windows.Forms.Button btn_rx_buf_clear;
         private System.Windows.Forms.Button button_csv_out;
-        private System.Windows.Forms.TextBox textBox_pulse_num;
-        private System.Windows.Forms.Label label_adc_sample_num;
-        private System.Windows.Forms.Label label_adc_threshold;
-        private System.Windows.Forms.TextBox textBox_threshold;
-        private System.Windows.Forms.Label label_adc_threshold_dis;
-        private System.Windows.Forms.Button clear_one_samplenum_btn;
-        private System.Windows.Forms.Button clear_thresh_btn;
         private System.Windows.Forms.Button button_autoopen;
         private System.Windows.Forms.Button button_adcStart;
         private System.Windows.Forms.Button button_adcStop;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label_peak_mca;
         private System.Windows.Forms.Label label_total_count_mca;
         private System.Windows.Forms.Label label_TotalCountingTime;
-        private System.Windows.Forms.Button button_adcsetting2;
-        private System.Windows.Forms.Button button_adcsetting1;
         private System.Windows.Forms.Timer timer_stopwatch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -590,8 +605,19 @@ namespace SerialScreen_ver1
         private System.Windows.Forms.Button button_100up;
         private System.Windows.Forms.Button button_voltageOFF;
         private System.Windows.Forms.Button button_VoltageON;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox_pulse_num;
+        private System.Windows.Forms.Label label_adc_sample_num;
+        private System.Windows.Forms.TextBox textBox_threshold;
+        private System.Windows.Forms.Button clear_thresh_btn;
+        private System.Windows.Forms.Label label_adc_threshold;
+        private System.Windows.Forms.Button clear_one_samplenum_btn;
+        private System.Windows.Forms.Label label_adc_threshold_dis;
+        private System.Windows.Forms.Button button_adcsetting1;
+        private System.Windows.Forms.Button button_adcsetting2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

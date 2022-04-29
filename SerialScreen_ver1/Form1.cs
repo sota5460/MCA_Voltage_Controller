@@ -1209,6 +1209,7 @@ namespace SerialScreen_ver1
 
             serialPort1.Write(Code_F4_spi + "B");
         }
+
     }
     }
 
