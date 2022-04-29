@@ -81,11 +81,13 @@ namespace SerialScreen_ver1
             this.button_adcsetting1 = new System.Windows.Forms.Button();
             this.button_adcsetting2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_MCA)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -156,7 +158,7 @@ namespace SerialScreen_ver1
             // 
             // button_MCA_ON
             // 
-            this.button_MCA_ON.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_MCA_ON.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_MCA_ON.ForeColor = System.Drawing.Color.Red;
             this.button_MCA_ON.Location = new System.Drawing.Point(126, 23);
             this.button_MCA_ON.Name = "button_MCA_ON";
@@ -168,7 +170,7 @@ namespace SerialScreen_ver1
             // 
             // button_MCA_OFF
             // 
-            this.button_MCA_OFF.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button_MCA_OFF.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button_MCA_OFF.ForeColor = System.Drawing.Color.Blue;
             this.button_MCA_OFF.Location = new System.Drawing.Point(126, 62);
             this.button_MCA_OFF.Name = "button_MCA_OFF";
@@ -180,9 +182,9 @@ namespace SerialScreen_ver1
             // 
             // button_mca_clear
             // 
-            this.button_mca_clear.Location = new System.Drawing.Point(1322, 455);
+            this.button_mca_clear.Location = new System.Drawing.Point(126, 101);
             this.button_mca_clear.Name = "button_mca_clear";
-            this.button_mca_clear.Size = new System.Drawing.Size(75, 23);
+            this.button_mca_clear.Size = new System.Drawing.Size(111, 34);
             this.button_mca_clear.TabIndex = 31;
             this.button_mca_clear.Text = "MCAクリア";
             this.button_mca_clear.UseVisualStyleBackColor = true;
@@ -250,30 +252,30 @@ namespace SerialScreen_ver1
             // label_peak_mca
             // 
             this.label_peak_mca.AutoSize = true;
-            this.label_peak_mca.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_peak_mca.Location = new System.Drawing.Point(1296, 152);
+            this.label_peak_mca.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label_peak_mca.Location = new System.Drawing.Point(6, 35);
             this.label_peak_mca.Name = "label_peak_mca";
-            this.label_peak_mca.Size = new System.Drawing.Size(97, 20);
+            this.label_peak_mca.Size = new System.Drawing.Size(80, 16);
             this.label_peak_mca.TabIndex = 46;
             this.label_peak_mca.Text = "peak_mca";
             // 
             // label_total_count_mca
             // 
             this.label_total_count_mca.AutoSize = true;
-            this.label_total_count_mca.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_total_count_mca.Location = new System.Drawing.Point(1290, 249);
+            this.label_total_count_mca.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label_total_count_mca.Location = new System.Drawing.Point(6, 100);
             this.label_total_count_mca.Name = "label_total_count_mca";
-            this.label_total_count_mca.Size = new System.Drawing.Size(112, 20);
+            this.label_total_count_mca.Size = new System.Drawing.Size(93, 16);
             this.label_total_count_mca.TabIndex = 47;
             this.label_total_count_mca.Text = "TotalCount";
             // 
             // label_TotalCountingTime
             // 
             this.label_TotalCountingTime.AutoSize = true;
-            this.label_TotalCountingTime.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label_TotalCountingTime.Location = new System.Drawing.Point(1300, 338);
+            this.label_TotalCountingTime.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label_TotalCountingTime.Location = new System.Drawing.Point(6, 159);
             this.label_TotalCountingTime.Name = "label_TotalCountingTime";
-            this.label_TotalCountingTime.Size = new System.Drawing.Size(102, 20);
+            this.label_TotalCountingTime.Size = new System.Drawing.Size(83, 16);
             this.label_TotalCountingTime.TabIndex = 48;
             this.label_TotalCountingTime.Text = "TotalTime";
             // 
@@ -285,32 +287,35 @@ namespace SerialScreen_ver1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(1300, 306);
+            this.label1.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.label1.Location = new System.Drawing.Point(6, 145);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.Size = new System.Drawing.Size(114, 14);
             this.label1.TabIndex = 49;
-            this.label1.Text = "計測時間";
+            this.label1.Text = "-CountingTime-";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(1289, 218);
+            this.label2.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(6, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.Size = new System.Drawing.Size(98, 14);
             this.label2.TabIndex = 50;
-            this.label2.Text = "総カウント数";
+            this.label2.Text = "-TotalCount-";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(1300, 123);
+            this.label3.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(6, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(55, 14);
             this.label3.TabIndex = 51;
-            this.label3.Text = "ピーク値";
+            this.label3.Text = "-Peak-\r\n";
             // 
             // textBox_VoltageOut
             // 
@@ -523,6 +528,7 @@ namespace SerialScreen_ver1
             this.groupBox3.Controls.Add(this.button_adcStop);
             this.groupBox3.Controls.Add(this.button_MCA_ON);
             this.groupBox3.Controls.Add(this.button_MCA_OFF);
+            this.groupBox3.Controls.Add(this.button_mca_clear);
             this.groupBox3.Font = new System.Drawing.Font("ＭＳ Ｐ明朝", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox3.Location = new System.Drawing.Point(445, 531);
             this.groupBox3.Name = "groupBox3";
@@ -531,12 +537,30 @@ namespace SerialScreen_ver1
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "MCA用コマンド";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.label_peak_mca);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label_total_count_mca);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.label_TotalCountingTime);
+            this.groupBox4.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox4.Location = new System.Drawing.Point(1280, 136);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(125, 206);
+            this.groupBox4.TabIndex = 63;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "MCA Info";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1425, 734);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button_adcsetting2);
             this.Controls.Add(this.button1);
@@ -550,13 +574,6 @@ namespace SerialScreen_ver1
             this.Controls.Add(this.label_adc_sample_num);
             this.Controls.Add(this.button_adcsetting1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label_TotalCountingTime);
-            this.Controls.Add(this.label_total_count_mca);
-            this.Controls.Add(this.label_peak_mca);
-            this.Controls.Add(this.button_mca_clear);
             this.Controls.Add(this.chart_MCA);
             this.Controls.Add(this.chart1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -570,6 +587,8 @@ namespace SerialScreen_ver1
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,6 +637,7 @@ namespace SerialScreen_ver1
         private System.Windows.Forms.Button button_adcsetting1;
         private System.Windows.Forms.Button button_adcsetting2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
 

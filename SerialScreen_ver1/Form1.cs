@@ -193,7 +193,7 @@ namespace SerialScreen_ver1
             //mca横ラベルの初期化　
             label_TotalCountingTime.Text = span.ToString(@"hh\:mm\:ss");
             label_total_count_mca.Text = 0.ToString();
-            label_peak_mca.Text = "横軸：" +0.ToString() + "\n縦軸：" + 0.ToString();
+            label_peak_mca.Text = "" +0.ToString() + "\n(Count:" + 0.ToString()+")";
 
         }
 
@@ -499,12 +499,12 @@ namespace SerialScreen_ver1
             ///
             //総カウント数の表示
             label_total_count_mca.Text = mca_hist_adjusted.Sum().ToString();
-            //最大カウント数の表示
+            //最大カウント数の表示Ho
             int max_vertical_count = mca_hist_adjusted.Max();
 
             int max_horizontal_adc_resolutioin = calculate_max_index_adjust_hist(max_vertical_count);
 
-            label_peak_mca.Text = "横軸：" + max_horizontal_adc_resolutioin.ToString() + "\n縦軸：" + max_vertical_count.ToString();
+            label_peak_mca.Text = "" + max_horizontal_adc_resolutioin.ToString() + "\n(count:" + max_vertical_count.ToString()+")";
         }
 
         public void adjust_horizon_chart_init(int[] mca_hist)
@@ -730,7 +730,7 @@ namespace SerialScreen_ver1
 
         private void textBox_threshold_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar < '0' || '9' < e.KeyChar)
+            if ((e.KeyChar < '0' || '9' < e.KeyChar)&&e.KeyChar != '\b')
             {
                 // only number is allowed to type
                 e.Handled = true;
@@ -739,7 +739,7 @@ namespace SerialScreen_ver1
 
         private void textBox_pulse_num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar < '0' || '9' < e.KeyChar )
+            if ((e.KeyChar < '0' || '9' < e.KeyChar) && e.KeyChar != '\b')
             {
                 // only number is allowed to type
                 e.Handled = true;
