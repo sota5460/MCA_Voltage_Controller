@@ -821,10 +821,19 @@ namespace SerialScreen_ver1
 
         }
 
+        public AutoSelect comAuto;
+
         private void button_autoopen_Click(object sender, EventArgs e)
         {
             MySerialPort sp_ = new MySerialPort(serialPort1);
-            AutoSelect comAuto = new AutoSelect("stm32f4", sp_);
+            AutoSelect comAuto = new AutoSelect("stm32f4", sp_,this);
+
+
+            if (comAuto.COM_selecting)
+            {
+                this.Enabled = false;
+                return;
+            }
 
             if (serialPort1.IsOpen == false)
             {
@@ -1266,6 +1275,23 @@ namespace SerialScreen_ver1
                     
 
            
+        }
+
+        public void WhenSerialOpen()
+        {
+            buf_settings(1000); //データ受取り数を1000byteに設定(500データ)
+
+            button_close.Enabled = true;
+            button_adcStart.Enabled = true;
+            button_adcStop.Enabled = true;
+            button_MCA_ON.Enabled = true;
+            button_MCA_OFF.Enabled = true;
+
+            button_autoopen.Enabled = false;
+
+
+            toolStripLabel_com.Text = serialPort1.PortName + "  接続中";
+            toolStripLabel_com.ForeColor = Color.DarkRed;
         }
     }
     }

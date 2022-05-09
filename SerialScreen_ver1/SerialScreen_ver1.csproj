@@ -50,6 +50,12 @@
   <ItemGroup>
     <Compile Include="ComAutoSelect.cs" />
     <Compile Include="ComPort.cs" />
+    <Compile Include="ComSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComSelectForm.Designer.cs">
+      <DependentUpon>ComSelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="MyserialPort.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ComSelectForm.resx">
+      <DependentUpon>ComSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

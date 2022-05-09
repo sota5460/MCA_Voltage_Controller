@@ -16,7 +16,7 @@ namespace SerialScreen_ver1
             (new ManagementClass("Win32_SerialPort")).GetInstances()
                     .OfType<ManagementObject>()
                     .Select(x => x.GetPropertyValue("Caption").ToString())
-                    .Where(x => x.Contains("COM12")); //　コムポート名に含む文字列を入れる。
+                    .Where(x => x.Contains("ST")); //　コムポート名に含む文字列を入れる。
 
             //ManagementClass device = new ManagementClass("Win32_SerialPort");
 
