@@ -1254,6 +1254,14 @@ namespace SerialScreen_ver1
             {
                 toolStripLabel_com.Text = "未接続";
                 toolStripLabel_com.ForeColor = Color.Gray;
+
+                button_close.Enabled = false;
+                button_adcStart.Enabled = false;
+                button_adcStop.Enabled = false;
+                button_MCA_ON.Enabled = false;
+                button_MCA_OFF.Enabled = false;
+
+                button_autoopen.Enabled = true;
             }
                     
 
