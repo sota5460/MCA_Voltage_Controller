@@ -949,6 +949,16 @@ namespace SerialScreen_ver1
         private void button_adcsetting2_Click(object sender, EventArgs e)
         {
             Send_ADCSettingCodetoSTM32();
+
+            try
+            {
+                Convert.ToInt32(textBox_threshold.Text);
+            }
+            catch
+            {
+                return;
+            }
+            STM32_ADC_OnePulseNum = Convert.ToInt32(textBox_threshold.Text); 
         }
 
         private void timer_stopwatch_Tick(object sender, EventArgs e)
